@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Card component -->
+        <div class="card">
+            <!-- Card image and heading -->
+            <div class="card-image">
+                <h2 class="card-heading">
+                    Iris Classification
+                </h2>
+            </div>
+            <!-- Form for inputting iris data -->
+            <form class="card-form" action="{{ url_for('home') }}" method="POST">
+                <!-- Input fields -->
+                <div class="input">
+                    <input name="SepalLength" type="number" step="any" class="input-field" required />
+                    <label class="input-label">Sepal Length in cm</label>
+                </div>
+                <div class="input">
+                    <input name="SepalWidth" type="number" step="any" class="input-field" required />
+                    <label class="input-label">Sepal Width in cm</label>
+                </div>
+                <div class="input">
+                    <input name="PetalLength" type="number" step="any" class="input-field" required />
+                    <label class="input-label">Petal Length in cm</label>
+                </div>
+                <div class="input">
+                    <input name="PetalWidth" type="number" step="any" class="input-field" required />
+                    <label class="input-label">Petal Width in cm</label>
+                </div>
+                <!-- Submit button -->
+                <div class="action">
+                    <button type="submit" class="action-button">Submit</button>
+                </div>
+            </form>
+            <!-- Display prediction and image -->
+            <div class="card-info">
+                <p class="prediction-text">{{ prediction }}</p>
+                <img src="{{ image }}" alt="{{ prediction }}" class="prediction-image">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
